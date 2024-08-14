@@ -7,12 +7,12 @@ const App = () => {
   const [isQuizStarted, setIsQuizStarted] = useState(false);
   const [numQuestions, setNumQuestions] = useState(5);
 
-  const startQuiz = (questionsCount) => {
+  const startQuiz = (questionsCount:number) => {
     setNumQuestions(questionsCount);
     setIsQuizStarted(true);
   };
 
-  const finishQuiz = (score, totalQuestions) => {
+  const finishQuiz = (score:number, totalQuestions:number) => {
     console.log(`Quiz terminado. Puntaje final: ${score} de ${totalQuestions}`);
     // Aquí puedes manejar la lógica al finalizar el quiz si es necesario
   };

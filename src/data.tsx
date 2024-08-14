@@ -78,7 +78,7 @@ const allQuestions = [
 ];
 
 // Función para obtener un subconjunto aleatorio de preguntas
-export const getRandomQuestions = (numQuestions) => {
+export const getRandomQuestions = (numQuestions: number) => {
   const shuffled = allQuestions.sort(() => 0.5 - Math.random());
   return shuffled.slice(0, numQuestions);
 };

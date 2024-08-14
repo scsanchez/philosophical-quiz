@@ -1,10 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { getRandomQuestions } from '../data';
+import { useState, useEffect } from 'react';
+import { getRandomQuestions } from '../data.tsx';
 import Question from './Question';
-import Result from './Result';
+import Result from './Result.tsx';
 
-const Quiz = ({ numQuestions, onFinish, onRestart }) => {
-  const [questions, setQuestions] = useState([]);
+interface QuizProps {
+  numQuestions: number;
+  onFinish: (score: number, totalQuestions: number) => void;
+  onRestart: () => void;
+}
+
+interface QuestionType {
+  question: string;
+  options: string[];
+  answer: string;
+}
+
+const Quiz: React.FC<QuizProps> = ({ numQuestions, onFinish, onRestart }) => {
+  const [questions, setQuestions] = useState<QuestionType[]>([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -17,25 +29,24 @@ const Quiz = ({ numQuestions, onFinish, onRestart }) => {
     setShowResult(false);
   }, [numQuestions]);
 
-  const handleAnswerOptionClick = (selectedOption) => {
+  const handleAnswerOptionClick = (selectedOption: string) => {
     const nextQuestion = currentQuestion + 1;
     if (selectedOption === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
-
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowResult(true);
-      onFinish(score, numQuestions);
+      onFinish(score, questions.length);
     }
   };
 
   const handleRestart = () => {
-    onRestart(); // Llama a la función para reiniciar el quiz
+    onRestart();
   };
 
-  if (questions.length === 0) return <div>Cargando...</div>;
+  if (questions.length === 0) return <div>Loading...</div>;
 
   return (
     <div className='quiz'>

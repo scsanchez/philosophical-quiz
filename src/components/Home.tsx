@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-const Home = ({ onStartQuiz }) => {
+interface HomeProps {
+  onStartQuiz: (numQuestions: number) => void;
+}
+
+const Home: React.FC<HomeProps> = ({ onStartQuiz }) => {
   const [showModal, setShowModal] = useState(false);
   const [numQuestions, setNumQuestions] = useState(5); // Valor por defecto
 
@@ -23,10 +27,9 @@ const Home = ({ onStartQuiz }) => {
               min='1'
               max='15' // Ajusta el rango según sea necesario
               value={numQuestions}
-              onChange={(e) => setNumQuestions(e.target.value)}
+              onChange={(e) => setNumQuestions(Number(e.target.value))}
             />
-            <button onClick={handleStartQuiz}>Iniciar Quiz</button>
-            <button onClick={() => setShowModal(false)}>Cancelar</button>
+            <button onClick={handleStartQuiz}>Iniciar</button>
           </div>
         </div>
       )}

@@ -1,11 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const Question = ({ question, options, onAnswer, correctAnswer }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [answerStatus, setAnswerStatus] = useState(null);
-  const [isOptionDisabled, setIsOptionDisabled] = useState(false);
+interface QuestionProps {
+  question: string;
+  options: string[];
+  onAnswer: (answer: string) => void;
+  correctAnswer: string;
+}
 
-  const handleAnswerOptionClick = (option) => {
+const Question: React.FC<QuestionProps> = ({ question, options, onAnswer, correctAnswer }) => {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [answerStatus, setAnswerStatus] = useState<'correct' | 'incorrect' | null>(null);
+  const [isOptionDisabled, setIsOptionDisabled] = useState<boolean>(false);
+
+  const handleAnswerOptionClick = (option: string) => {
     if (isOptionDisabled) return; // No hacer nada si las opciones están deshabilitadas
 
     setSelectedOption(option);

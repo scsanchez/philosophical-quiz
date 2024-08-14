@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Result = ({ score, totalQuestions, onRestart }) => {
+interface ResultProps {
+  score: number;
+  totalQuestions: number;
+  onRestart: () => void;
+}
+
+const Result: React.FC<ResultProps> = ({ score, totalQuestions, onRestart }) => {
   return (
     <div className='result'>
       <h1>Resultado del Quiz</h1>
