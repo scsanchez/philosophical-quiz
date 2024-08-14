@@ -1,42 +1,108 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Estilos generales para la aplicación */
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para la pantalla de inicio */
+.home {
+  margin-top: 50px;
+}
+
+.home button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+/* Estilos para el modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.modal-content input {
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Estilos para el quiz */
+.quiz {
+  margin-top: 20px;
 }
 
-.card {
-  padding: 2em;
+.question-section {
+  text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+.options {
+  margin-top: 20px;
+}
+
+.option-button {
+  display: block;
+  margin: 10px auto;
+  padding: 10px;
+  width: 80%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  background-color: #f0f0f0;
+}
+
+.option-button.correct {
+  border-color: green;
+  background-color: #d4edda;
+  color: green;
+}
+
+.option-button.incorrect {
+  border-color: red;
+  background-color: #f8d7da;
+  color: red;
+}
+
+.option-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Estilos para el componente Result */
+.result {
+  margin-top: 20px;
+}
+
+.result h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.result p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.result button {
+  padding: 10px 20px;
+  font-size: 16px;
 }
