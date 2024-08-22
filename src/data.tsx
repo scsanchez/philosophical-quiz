@@ -2,7 +2,7 @@
 const allQuestions = [
   {
     question: "¿Quién es considerado el padre de la filosofía occidental?",
-    options: ["Sócrates", "Platón", "Aristóteles", "Sócrates"],
+    options: ["Sócrates", "Platón", "Aristóteles", "Pitágoras"],
     answer: "Sócrates",
   },
   {
