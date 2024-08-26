@@ -43,7 +43,7 @@ const Question: React.FC<QuestionProps> = ({ question, options, onAnswer, correc
           <button
             key={index}
             onClick={() => handleAnswerOptionClick(option)}
-            className={`option-button ${selectedOption === option ? answerStatus : ''}`}
+            className={`option-button ${selectedOption === option ? answerStatus : ''} ${answerStatus === 'incorrect' && option === correctAnswer ? 'correct-option' : ''}`}
             disabled={isOptionDisabled}
           >
             {option}
